@@ -18,7 +18,7 @@ module.exports = (counters, props) => {
             {
                 type: "flex",
                 direction: "vertical",
-                children: counters.map((counter) => {
+                children: counters.sort((a, b) => a._id - b._id).map((counter) => {
                     return {
                         type: "widget",
                         name: "counter",
