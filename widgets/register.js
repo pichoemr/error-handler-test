@@ -1,36 +1,46 @@
 'use strict'
 
 module.exports = (data, props) => {
-    console.log(data)
-    if (data.register) {
-        return {
-            type: "widget",
-            name: "home"
-        }
-    } else {
-        return {
-            type: "flex",
-            fillParent: true,
-            direction: "vertical",
-            children: [
-                {
-                    type: "text",
-                    value: "Welcome to Lenra chat !"
-                },
-                {
-                    type: "text",
-                    value: "Please enter yout pseudo !"
-                },
-                {
-                    type: "textfield",
-                    value: "",
-                    onChanged: {
-                        action: "register"
-                    }
-                },
-            ]
-        }
+    return {
+        type: "flex",
+        fillParent: true,
+        direction: "horizontal",
+        mainAxisAlignment: "center",
+        children: [
+            {
+                type: "flex",
+                direction: "vertical",
+                children: [
+                    // {
+                    //     type: "text",
+                    //     value: "Please enter your pseudo !"
+                    // },
+                    {
+                        type: "container",
+                        child: {
+                            type: "textfield",
+                            value: "",
+                            onChanged: {
+                                action: "register"
+                            },
+                            style: {
+                                decoration: {
+                                    labelText: "Please enter your pseudo !",
+                                    filled: true,
+                                    fillColor: 0xFFBBDEFB,
+                                },
+                            }
+                        },
+                        padding: {
+                            bottom: 2,
+                            top: 2,
+                            left: 2,
+                            right: 2
+                        },
+                    },
+                ]
+            }
+        ]
     }
-
 }
 
