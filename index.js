@@ -13,7 +13,8 @@ module.exports = async () => {
     },
     listeners: {
       onEnvStart: require('./listeners/onEnvStart'),
-      onUserFirstJoin: require('./listeners/onUserFirstJoin')
+      onUserFirstJoin: require('./listeners/onUserFirstJoin'),
+      register: require('./listeners/register')
     },
     rootWidget: 'main'
   }

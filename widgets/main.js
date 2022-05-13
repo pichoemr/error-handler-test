@@ -4,14 +4,24 @@ module.exports = (data, props) => {
   return {
     type: "flex",
     direction: "vertical",
+    fillParent: true,
     children: [
       {
         type: "widget",
         name: "header",
       },
       {
-        type: "widget",
-        name: "redirect",
+        type: "flexible",
+        child: {
+          type: "widget",
+          name: "redirect",
+          query: {
+            "$find": {
+              "_datastore": "_users",
+              "_id": "@me"
+            }
+          }
+        }
       },
     ]
   }

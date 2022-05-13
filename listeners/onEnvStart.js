@@ -1,10 +1,8 @@
 'use strict'
 
-const counterService = require("../services/counterService");
+const salonService = require("../services/salonService");
 
 
 module.exports = (props, event, api) => {
-    return counterService.createDatastore(api).then(function (response) {
-        response.data
-    }).catch((e => { }));
+    return salonService.createDatastore(api).catch((e => { console.log(e) }));
 }

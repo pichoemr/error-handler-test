@@ -1,12 +1,12 @@
 'use strict'
 
-const counterService = require("../services/counterService")
+const user_data_service = require("../services/user_data_service");
 
 
-module.exports = (props, event, api) => {
-    console.log("OnUSerFirstJoin")
-    return counterService.new(api).then(function (response) {
-        console.log("response" + response)
-        response.data
+module.exports = async (props, event, api) => {
+    var user_data = await user_data_service.get(api);
+
+    return user_data_service.put(api, user_data.data.data[0]._id, {
+        register: false,
     });
 }
