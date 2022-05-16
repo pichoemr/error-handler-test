@@ -3,21 +3,21 @@
 const { default: axios } = require("axios");
 
 module.exports = {
-    get(api, chatId) {
-        return axios.get(`${api.url}/app/datastores/Counter/data/${chatId}`, { headers: { Authorization: `Bearer ${api.token}` } }
+    get(api, MessageId) {
+        return axios.get(`${api.url}/app/datastores/Messages/data/${MessageId}`, { headers: { Authorization: `Bearer ${api.token}` } }
         );
     },
-    put(api, chat) {
-        return axios.put(`${api.url}/app/datastores/Counter/data/${chat._id}`, chat, { headers: { Authorization: `Bearer ${api.token}` } });
+    put(api, Message) {
+        return axios.put(`${api.url}/app/datastores/Messages/data/${Message._id}`, chat, { headers: { Authorization: `Bearer ${api.token}` } });
     },
-    new(api, text, pseudo) {
-        return axios.post(`${api.url}/app/datastores/Counter/data`, { "text": text, "pseudo": pseudo }, { headers: { Authorization: `Bearer ${api.token}` } });
+    new(api, text, pseudo, refs, refby) {
+        return axios.post(`${api.url}/app/datastores/Messages/data`, { "text": text, "pseudo": pseudo, "_refs": refs, "_refBy": refby }, { headers: { Authorization: `Bearer ${api.token}` } });
     },
-    delete(api, chatId) {
-        return axios.delete(`${api.url}/app/datastores/Counter/data/${chatId}`, { headers: { Authorization: `Bearer ${api.token}` } });
+    delete(api, MessageId) {
+        return axios.delete(`${api.url}/app/datastores/Messages/data/${MessageId}`, { headers: { Authorization: `Bearer ${api.token}` } });
 
     },
     createDatastore(api) {
-        return axios.post(`${api.url}/app/datastores`, { "name": "Chat" }, { headers: { Authorization: `Bearer ${api.token}` } });
+        return axios.post(`${api.url}/app/datastores`, { "name": "Messages" }, { headers: { Authorization: `Bearer ${api.token}` } });
     }
 }

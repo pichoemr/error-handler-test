@@ -14,7 +14,8 @@ module.exports = async () => {
     listeners: {
       onEnvStart: require('./listeners/onEnvStart'),
       onUserFirstJoin: require('./listeners/onUserFirstJoin'),
-      register: require('./listeners/register')
+      register: require('./listeners/register'),
+      send_message: require('./listeners/send_message')
     },
     rootWidget: 'main'
   }

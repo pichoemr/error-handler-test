@@ -58,7 +58,11 @@ module.exports = (data, props) => {
                         type: "button",
                         text: "Send",
                         onPressed: {
-                            action: "send"
+                            action: "send_message",
+                            props: {
+                                text: "test",
+                                pseudo: "test"
+                            }
                         }
                     }
                 ]
